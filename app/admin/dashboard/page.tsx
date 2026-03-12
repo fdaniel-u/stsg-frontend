@@ -439,7 +439,7 @@ export default function DashboardPage() {
 
   const PreviewPanel = ({ children }: { children: React.ReactNode }) => (
     <div className={`${showPreview ? "block" : "hidden"} lg:block`}>
-      <div className="rounded-xl bg-[#1a1a1a] p-4 lg:sticky lg:top-4">
+      <div className="rounded-xl bg-[#1a1a1a] p-5 lg:sticky lg:top-4 lg:p-6">
         <h3 className="mb-3 font-serif text-sm font-bold text-[#c8a882]">Vista Previa</h3>
         <div className="text-[#f5f0eb]">{children}</div>
       </div>
@@ -645,7 +645,7 @@ export default function DashboardPage() {
               </button>
             </div>
             <PreviewToggle />
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
             <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
@@ -662,7 +662,7 @@ export default function DashboardPage() {
                   {/* Vista móvil - Cards */}
                   <div className="divide-y divide-[#e5e0da] md:hidden">
                     {projects.map((project) => (
-                      <div key={project.id} className="p-4">
+                      <div key={project.id} className="p-5">
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium text-[#1a1a1a]">{project.title}</h3>
@@ -687,41 +687,43 @@ export default function DashboardPage() {
                     ))}
                   </div>
                   {/* Vista desktop - Tabla */}
-                  <table className="hidden w-full text-sm md:table">
-                    <thead>
-                      <tr className="border-b border-[#e5e0da] bg-[#ece7e1]">
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Título</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Categoría</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Año</th>
-                        <th className="px-4 py-3 text-right font-medium text-[#555] lg:px-6 lg:py-4">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {projects.map((project, i) => (
-                        <tr key={project.id} className={`border-b border-[#e5e0da] transition-colors hover:bg-[#ece7e1] ${i === projects.length - 1 ? "border-b-0" : ""}`}>
-                          <td className="px-4 py-3 font-medium text-[#1a1a1a] lg:px-6 lg:py-4">{project.title}</td>
-                          <td className="px-4 py-3 lg:px-6 lg:py-4">
-                            <span className="rounded-full bg-[#c8a882]/20 px-3 py-1 text-xs font-medium text-[#8a6a4a]">{project.category}</span>
-                          </td>
-                          <td className="px-4 py-3 text-[#555] lg:px-6 lg:py-4">{project.year}</td>
-                          <td className="px-4 py-3 text-right lg:px-6 lg:py-4">
-                            <div className="flex items-center justify-end gap-2">
-                              <button onClick={() => openEditProject(project)} className="rounded-lg border border-[#c8a882] px-3 py-1.5 text-xs font-medium text-[#c8a882] transition-all hover:bg-[#c8a882] hover:text-white">Editar</button>
-                              {deleteConfirm === project.id ? (
-                                <div className="flex items-center gap-1">
-                                  <span className="text-xs text-[#555]">¿Confirmar?</span>
-                                  <button onClick={() => handleDeleteProject(project.id)} className="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">Sí</button>
-                                  <button onClick={() => setDeleteConfirm(null)} className="rounded-lg border border-[#ccc] px-3 py-1.5 text-xs text-[#555] hover:bg-[#eee]">No</button>
-                                </div>
-                              ) : (
-                                <button onClick={() => setDeleteConfirm(project.id)} className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-medium text-red-500 transition-all hover:bg-red-500 hover:text-white">Eliminar</button>
-                              )}
-                            </div>
-                          </td>
+                  <div className="hidden overflow-x-auto md:block">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-[#e5e0da] bg-[#ece7e1]">
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Título</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Categoría</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Año</th>
+                          <th className="px-6 py-4 text-right font-medium text-[#555]">Acciones</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {projects.map((project, i) => (
+                          <tr key={project.id} className={`border-b border-[#e5e0da] transition-colors hover:bg-[#ece7e1] ${i === projects.length - 1 ? "border-b-0" : ""}`}>
+                            <td className="px-6 py-4 font-medium text-[#1a1a1a]">{project.title}</td>
+                            <td className="px-6 py-4">
+                              <span className="rounded-full bg-[#c8a882]/20 px-3 py-1 text-xs font-medium text-[#8a6a4a]">{project.category}</span>
+                            </td>
+                            <td className="px-6 py-4 text-[#555]">{project.year}</td>
+                            <td className="px-6 py-4 text-right">
+                              <div className="flex items-center justify-end gap-2">
+                                <button onClick={() => openEditProject(project)} className="rounded-lg border border-[#c8a882] px-3 py-1.5 text-xs font-medium text-[#c8a882] transition-all hover:bg-[#c8a882] hover:text-white">Editar</button>
+                                {deleteConfirm === project.id ? (
+                                  <div className="flex items-center gap-1">
+                                    <span className="text-xs text-[#555]">¿Confirmar?</span>
+                                    <button onClick={() => handleDeleteProject(project.id)} className="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">Sí</button>
+                                    <button onClick={() => setDeleteConfirm(null)} className="rounded-lg border border-[#ccc] px-3 py-1.5 text-xs text-[#555] hover:bg-[#eee]">No</button>
+                                  </div>
+                                ) : (
+                                  <button onClick={() => setDeleteConfirm(project.id)} className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-medium text-red-500 transition-all hover:bg-red-500 hover:text-white">Eliminar</button>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </>
               )}
             </div>
@@ -743,8 +745,8 @@ export default function DashboardPage() {
               </button>
             </div>
             <PreviewToggle />
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-            <div className="relative overflow-x-auto rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+            <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
@@ -760,7 +762,7 @@ export default function DashboardPage() {
                   {/* Vista móvil - Cards */}
                   <div className="divide-y divide-[#e5e0da] md:hidden">
                     {services.map((s) => (
-                      <div key={s.id} className="p-4">
+                      <div key={s.id} className="p-5">
                         <div className="flex items-start gap-3">
                           <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#1a1a1a]/10 text-xl">{s.icon}</span>
                           <div className="min-w-0 flex-1">
@@ -786,41 +788,43 @@ export default function DashboardPage() {
                     ))}
                   </div>
                   {/* Vista desktop - Tabla */}
-                  <table className="hidden w-full text-sm md:table">
-                    <thead>
-                      <tr className="border-b border-[#e5e0da] bg-[#ece7e1]">
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Orden</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Icono</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Título</th>
-                        <th className="hidden px-4 py-3 text-left font-medium text-[#555] lg:table-cell lg:px-6 lg:py-4">Descripción</th>
-                        <th className="min-w-[120px] px-4 py-3 pr-4 text-right font-medium text-[#555] lg:px-6 lg:py-4 lg:pr-6">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {services.map((s, i) => (
-                        <tr key={s.id} className={`border-b border-[#e5e0da] transition-colors hover:bg-[#ece7e1] ${i === services.length - 1 ? "border-b-0" : ""}`}>
-                          <td className="px-4 py-3 text-[#555] lg:px-6 lg:py-4">{s.order_index}</td>
-                          <td className="px-4 py-3 text-xl lg:px-6 lg:py-4">{s.icon}</td>
-                          <td className="px-4 py-3 font-medium text-[#1a1a1a] lg:px-6 lg:py-4">{s.title}</td>
-                          <td className="hidden max-w-xs truncate px-4 py-3 text-[#555] lg:table-cell lg:px-6 lg:py-4">{s.description}</td>
-                          <td className="px-4 py-3 pr-4 text-right lg:px-6 lg:py-4 lg:pr-6">
-                            <div className="flex items-center justify-end gap-2">
-                              <button onClick={() => openEditService(s)} className="rounded-lg border border-[#c8a882] px-3 py-1.5 text-xs font-medium text-[#c8a882] transition-all hover:bg-[#c8a882] hover:text-white">Editar</button>
-                              {deleteServiceConfirm === s.id ? (
-                                <div className="flex items-center gap-1">
-                                  <span className="hidden text-xs text-[#555] lg:inline">¿Confirmar?</span>
-                                  <button onClick={() => handleDeleteService(s.id)} className="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">Sí</button>
-                                  <button onClick={() => setDeleteServiceConfirm(null)} className="rounded-lg border border-[#ccc] px-3 py-1.5 text-xs text-[#555] hover:bg-[#eee]">No</button>
-                                </div>
-                              ) : (
-                                <button onClick={() => setDeleteServiceConfirm(s.id)} className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-medium text-red-500 transition-all hover:bg-red-500 hover:text-white">Eliminar</button>
-                              )}
-                            </div>
-                          </td>
+                  <div className="hidden overflow-x-auto md:block">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-[#e5e0da] bg-[#ece7e1]">
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Orden</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Icono</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Título</th>
+                          <th className="hidden px-6 py-4 text-left font-medium text-[#555] lg:table-cell">Descripción</th>
+                          <th className="min-w-[180px] px-6 py-4 text-right font-medium text-[#555]">Acciones</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {services.map((s, i) => (
+                          <tr key={s.id} className={`border-b border-[#e5e0da] transition-colors hover:bg-[#ece7e1] ${i === services.length - 1 ? "border-b-0" : ""}`}>
+                            <td className="px-6 py-4 text-[#555]">{s.order_index}</td>
+                            <td className="px-6 py-4 text-xl">{s.icon}</td>
+                            <td className="px-6 py-4 font-medium text-[#1a1a1a]">{s.title}</td>
+                            <td className="hidden max-w-xs truncate px-6 py-4 text-[#555] lg:table-cell">{s.description}</td>
+                            <td className="px-6 py-4 text-right">
+                              <div className="flex items-center justify-end gap-2">
+                                <button onClick={() => openEditService(s)} className="rounded-lg border border-[#c8a882] px-3 py-1.5 text-xs font-medium text-[#c8a882] transition-all hover:bg-[#c8a882] hover:text-white">Editar</button>
+                                {deleteServiceConfirm === s.id ? (
+                                  <div className="flex items-center gap-1">
+                                    <span className="hidden text-xs text-[#555] lg:inline">¿Confirmar?</span>
+                                    <button onClick={() => handleDeleteService(s.id)} className="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">Sí</button>
+                                    <button onClick={() => setDeleteServiceConfirm(null)} className="rounded-lg border border-[#ccc] px-3 py-1.5 text-xs text-[#555] hover:bg-[#eee]">No</button>
+                                  </div>
+                                ) : (
+                                  <button onClick={() => setDeleteServiceConfirm(s.id)} className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-medium text-red-500 transition-all hover:bg-red-500 hover:text-white">Eliminar</button>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </>
               )}
             </div>
@@ -836,8 +840,8 @@ export default function DashboardPage() {
               <p className="mt-1 text-xs text-[#666] sm:text-sm">Edita el contenido de la sección principal del sitio</p>
             </div>
             <PreviewToggle />
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-              <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-4 sm:rounded-2xl sm:p-8">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+              <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-6 sm:rounded-2xl sm:p-8 lg:p-10">
                 <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
                 <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
@@ -883,8 +887,8 @@ export default function DashboardPage() {
               <p className="mt-1 text-xs text-[#666] sm:text-sm">Edita el contenido de la sección &quot;Sobre Nosotros&quot;</p>
             </div>
             <PreviewToggle />
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-              <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-4 sm:rounded-2xl sm:p-8">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+              <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-6 sm:rounded-2xl sm:p-8 lg:p-10">
                 <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
                 <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
@@ -938,8 +942,8 @@ export default function DashboardPage() {
               <p className="mt-1 text-xs text-[#666] sm:text-sm">Edita la información de contacto que se muestra en el sitio</p>
             </div>
             <PreviewToggle />
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-              <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-4 sm:rounded-2xl sm:p-8">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+              <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-6 sm:rounded-2xl sm:p-8 lg:p-10">
                 <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
                 <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
@@ -1003,8 +1007,8 @@ export default function DashboardPage() {
               </button>
             </div>
             <PreviewToggle />
-            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-            <div className="relative overflow-x-auto rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+            <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
@@ -1020,7 +1024,7 @@ export default function DashboardPage() {
                   {/* Vista móvil - Cards */}
                   <div className="divide-y divide-[#e5e0da] md:hidden">
                     {socialLinks.map((s) => (
-                      <div key={s.id} className="p-4">
+                      <div key={s.id} className="p-5">
                         <div className="flex items-start gap-3">
                           <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#1a1a1a] text-white">
                             <SocialIcon icon={s.icon} className="h-5 w-5" />
@@ -1058,58 +1062,60 @@ export default function DashboardPage() {
                     ))}
                   </div>
                   {/* Vista desktop - Tabla */}
-                  <table className="hidden w-full text-sm md:table">
-                    <thead>
-                      <tr className="border-b border-[#e5e0da] bg-[#ece7e1]">
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Orden</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Icono</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Red Social</th>
-                        <th className="hidden px-4 py-3 text-left font-medium text-[#555] lg:table-cell lg:px-6 lg:py-4">URL</th>
-                        <th className="px-4 py-3 text-left font-medium text-[#555] lg:px-6 lg:py-4">Estado</th>
-                        <th className="px-4 py-3 text-right font-medium text-[#555] lg:px-6 lg:py-4">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {socialLinks.map((s, i) => (
-                        <tr key={s.id} className={`border-b border-[#e5e0da] transition-colors hover:bg-[#ece7e1] ${i === socialLinks.length - 1 ? "border-b-0" : ""}`}>
-                          <td className="px-4 py-3 text-[#555] lg:px-6 lg:py-4">{s.order_index}</td>
-                          <td className="px-4 py-3 lg:px-6 lg:py-4">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1a1a1a] text-white">
-                              <SocialIcon icon={s.icon} className="h-4 w-4" />
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 font-medium text-[#1a1a1a] lg:px-6 lg:py-4">{s.network_name}</td>
-                          <td className="hidden px-4 py-3 text-[#555] lg:table-cell lg:px-6 lg:py-4">{s.url.length > 30 ? s.url.slice(0, 30) + "\u2026" : s.url}</td>
-                          <td className="px-4 py-3 lg:px-6 lg:py-4">
-                            <button
-                              onClick={() => handleToggleSocialActive(s)}
-                              className={`rounded-full px-2 py-1 text-xs font-medium transition-all lg:px-3 ${
-                                s.is_active
-                                  ? "bg-green-100 text-green-700 hover:bg-green-200"
-                                  : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                              }`}
-                            >
-                              {s.is_active ? "Activo" : "Inactivo"}
-                            </button>
-                          </td>
-                          <td className="px-4 py-3 text-right lg:px-6 lg:py-4">
-                            <div className="flex items-center justify-end gap-2">
-                              <button onClick={() => openEditSocial(s)} className="rounded-lg border border-[#c8a882] px-3 py-1.5 text-xs font-medium text-[#c8a882] transition-all hover:bg-[#c8a882] hover:text-white">Editar</button>
-                              {deleteSocialConfirm === s.id ? (
-                                <div className="flex items-center gap-1">
-                                  <span className="hidden text-xs text-[#555] lg:inline">¿Confirmar?</span>
-                                  <button onClick={() => handleDeleteSocial(s.id)} className="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">Sí</button>
-                                  <button onClick={() => setDeleteSocialConfirm(null)} className="rounded-lg border border-[#ccc] px-3 py-1.5 text-xs text-[#555] hover:bg-[#eee]">No</button>
-                                </div>
-                              ) : (
-                                <button onClick={() => setDeleteSocialConfirm(s.id)} className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-medium text-red-500 transition-all hover:bg-red-500 hover:text-white">Eliminar</button>
-                              )}
-                            </div>
-                          </td>
+                  <div className="hidden overflow-x-auto md:block">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-[#e5e0da] bg-[#ece7e1]">
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Orden</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Icono</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Red Social</th>
+                          <th className="hidden px-6 py-4 text-left font-medium text-[#555] lg:table-cell">URL</th>
+                          <th className="px-6 py-4 text-left font-medium text-[#555]">Estado</th>
+                          <th className="min-w-[180px] px-6 py-4 text-right font-medium text-[#555]">Acciones</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {socialLinks.map((s, i) => (
+                          <tr key={s.id} className={`border-b border-[#e5e0da] transition-colors hover:bg-[#ece7e1] ${i === socialLinks.length - 1 ? "border-b-0" : ""}`}>
+                            <td className="px-6 py-4 text-[#555]">{s.order_index}</td>
+                            <td className="px-6 py-4">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1a1a1a] text-white">
+                                <SocialIcon icon={s.icon} className="h-4 w-4" />
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 font-medium text-[#1a1a1a]">{s.network_name}</td>
+                            <td className="hidden px-6 py-4 text-[#555] lg:table-cell">{s.url.length > 30 ? s.url.slice(0, 30) + "\u2026" : s.url}</td>
+                            <td className="px-6 py-4">
+                              <button
+                                onClick={() => handleToggleSocialActive(s)}
+                                className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
+                                  s.is_active
+                                    ? "bg-green-100 text-green-700 hover:bg-green-200"
+                                    : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                                }`}
+                              >
+                                {s.is_active ? "Activo" : "Inactivo"}
+                              </button>
+                            </td>
+                            <td className="px-6 py-4 text-right">
+                              <div className="flex items-center justify-end gap-2">
+                                <button onClick={() => openEditSocial(s)} className="rounded-lg border border-[#c8a882] px-3 py-1.5 text-xs font-medium text-[#c8a882] transition-all hover:bg-[#c8a882] hover:text-white">Editar</button>
+                                {deleteSocialConfirm === s.id ? (
+                                  <div className="flex items-center gap-1">
+                                    <span className="hidden text-xs text-[#555] lg:inline">¿Confirmar?</span>
+                                    <button onClick={() => handleDeleteSocial(s.id)} className="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">Sí</button>
+                                    <button onClick={() => setDeleteSocialConfirm(null)} className="rounded-lg border border-[#ccc] px-3 py-1.5 text-xs text-[#555] hover:bg-[#eee]">No</button>
+                                  </div>
+                                ) : (
+                                  <button onClick={() => setDeleteSocialConfirm(s.id)} className="rounded-lg border border-red-300 px-3 py-1.5 text-xs font-medium text-red-500 transition-all hover:bg-red-500 hover:text-white">Eliminar</button>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </>
               )}
             </div>
