@@ -645,7 +645,11 @@ export default function DashboardPage() {
               </button>
             </div>
             <PreviewToggle />
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
+=======
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+>>>>>>> c76d99f43ef1fcd1e30f3edf603255f2034caa69
             <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
@@ -745,7 +749,11 @@ export default function DashboardPage() {
               </button>
             </div>
             <PreviewToggle />
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
+=======
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+>>>>>>> c76d99f43ef1fcd1e30f3edf603255f2034caa69
             <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
@@ -840,7 +848,11 @@ export default function DashboardPage() {
               <p className="mt-1 text-xs text-[#666] sm:text-sm">Edita el contenido de la sección principal del sitio</p>
             </div>
             <PreviewToggle />
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
+=======
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+>>>>>>> c76d99f43ef1fcd1e30f3edf603255f2034caa69
               <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-6 sm:rounded-2xl sm:p-8 lg:p-10">
                 <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
                 <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
@@ -887,7 +899,11 @@ export default function DashboardPage() {
               <p className="mt-1 text-xs text-[#666] sm:text-sm">Edita el contenido de la sección &quot;Sobre Nosotros&quot;</p>
             </div>
             <PreviewToggle />
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
+=======
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+>>>>>>> c76d99f43ef1fcd1e30f3edf603255f2034caa69
               <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-6 sm:rounded-2xl sm:p-8 lg:p-10">
                 <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
                 <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
@@ -942,7 +958,11 @@ export default function DashboardPage() {
               <p className="mt-1 text-xs text-[#666] sm:text-sm">Edita la información de contacto que se muestra en el sitio</p>
             </div>
             <PreviewToggle />
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
+=======
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+>>>>>>> c76d99f43ef1fcd1e30f3edf603255f2034caa69
               <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] p-6 sm:rounded-2xl sm:p-8 lg:p-10">
                 <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
                 <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
@@ -1007,7 +1027,11 @@ export default function DashboardPage() {
               </button>
             </div>
             <PreviewToggle />
+<<<<<<< HEAD
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
+=======
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr] lg:gap-8">
+>>>>>>> c76d99f43ef1fcd1e30f3edf603255f2034caa69
             <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
