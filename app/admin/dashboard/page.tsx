@@ -744,7 +744,7 @@ export default function DashboardPage() {
             </div>
             <PreviewToggle />
             <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-            <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
+            <div className="relative overflow-x-auto rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
@@ -1004,7 +1004,7 @@ export default function DashboardPage() {
             </div>
             <PreviewToggle />
             <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[3fr_2fr]">
-            <div className="relative overflow-hidden rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
+            <div className="relative overflow-x-auto rounded-xl bg-[#f5f0eb] sm:rounded-2xl">
               <div className="absolute -left-2 -top-2 h-5 w-5 bg-[#7ec8c0]" />
               <div className="absolute -bottom-2 -right-2 h-5 w-5 bg-[#c8a882]" />
 
